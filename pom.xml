@@ -21,5 +21,10 @@
             <artifactId>mongo-java-driver</artifactId>
             <version>3.4.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.gotkcups</groupId>
+            <artifactId>invupdates</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
