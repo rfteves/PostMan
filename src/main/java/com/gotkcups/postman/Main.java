@@ -9,6 +9,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gotkcups.data.Constants;
 import com.gotkcups.io.GateWay;
+import com.gotkcups.io.RestHttpClient;
+import com.gotkcups.io.Utilities;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Frame;
@@ -96,6 +98,8 @@ public class Main extends javax.swing.JFrame {
     jLabel10 = new javax.swing.JLabel();
     productid = new javax.swing.JTextField();
     jButton7 = new javax.swing.JButton();
+    jButton8 = new javax.swing.JButton();
+    jButton9 = new javax.swing.JButton();
     jButton1 = new javax.swing.JButton();
     jButton2 = new javax.swing.JButton();
     jLabel7 = new javax.swing.JLabel();
@@ -253,6 +257,20 @@ public class Main extends javax.swing.JFrame {
       }
     });
 
+    jButton8.setText("Fix Images / Barcode");
+    jButton8.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton8ActionPerformed(evt);
+      }
+    });
+
+    jButton9.setText("Submit Images / Barcode");
+    jButton9.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton9ActionPerformed(evt);
+      }
+    });
+
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
     jPanel2Layout.setHorizontalGroup(
@@ -260,13 +278,16 @@ public class Main extends javax.swing.JFrame {
       .addGroup(jPanel2Layout.createSequentialGroup()
         .addGap(32, 32, 32)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+          .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addGroup(jPanel2Layout.createSequentialGroup()
             .addComponent(jLabel10)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(productid, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+          .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))
         .addContainerGap(784, Short.MAX_VALUE))
     );
     jPanel2Layout.setVerticalGroup(
@@ -280,7 +301,11 @@ public class Main extends javax.swing.JFrame {
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jButton6)
           .addComponent(jButton7))
-        .addContainerGap(308, Short.MAX_VALUE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jButton8)
+          .addComponent(jButton9))
+        .addContainerGap(276, Short.MAX_VALUE))
     );
 
     jScrollPane5.setViewportView(jPanel2);
@@ -571,6 +596,48 @@ public class Main extends javax.swing.JFrame {
     }
   }//GEN-LAST:event_jButton7ActionPerformed
 
+  private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    Document products = Document.parse(outputText.getText());
+    Document product = (Document)products.get(Constants.Product);
+    List<Document> variants = (List) product.get(Constants.Variants);
+    Document colorImage = new Document();
+    for (Document variant : variants) {
+      if (variant.get("image_id") != null) {
+        colorImage.put(variant.getString("option1"), variant.get("image_id"));
+      }
+      if (variant.get("barcode") != null && variant.getString("barcode").length() > 0) {
+        colorImage.put("barcode", variant.get("barcode"));
+      }
+    }
+    for (Document variant : variants) {
+      if (colorImage.get(variant.getString("option1")) != null) {
+        variant.put("image_id", colorImage.get(variant.getString("option1")));
+      }
+      if (colorImage.get("barcode") != null && colorImage.getString("barcode").length() > 0) {
+        variant.put("barcode", colorImage.get("barcode"));
+      }
+    }
+    ObjectMapper mapper = new ObjectMapper();
+    try {
+      inputText.setText(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(product));
+    } catch (JsonProcessingException ex) {
+      Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }//GEN-LAST:event_jButton8ActionPerformed
+
+  private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    Document products = Document.parse(inputText.getText());
+    List<Document> variants = (List) products.get(Constants.Variants);
+    Document change = new Document();
+    for (Document variant: variants) {
+      change.put(Constants.Id, variant.getLong(Constants.Id));
+      change.put("barcode", variant.getString("barcode"));
+      change.put("image_id", variant.get("image_id"));
+      GateWay.updateVariant(Constants.Production, variant.getLong(Constants.Id), new Document("variant", change).toJson());
+      int y = 0;
+    }
+  }//GEN-LAST:event_jButton9ActionPerformed
+
   /**
    * @param args the command line arguments
    */
@@ -627,6 +694,8 @@ public class Main extends javax.swing.JFrame {
   private javax.swing.JButton jButton5;
   private javax.swing.JButton jButton6;
   private javax.swing.JButton jButton7;
+  private javax.swing.JButton jButton8;
+  private javax.swing.JButton jButton9;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel10;
   private javax.swing.JLabel jLabel2;
