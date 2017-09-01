@@ -2,7 +2,9 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup">
+    <Component class="javax.swing.ButtonGroup" name="httpGroup">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="configureGroup">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -37,18 +39,19 @@
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="getButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="getRadio" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="postButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="url" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="postRadio" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                              <Component id="putButton" min="-2" max="-2" attributes="0"/>
+                              <Component id="putRadio" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="restButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="costcoButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -62,12 +65,19 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="mid" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                              <Component id="configure" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="pidRadio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="vidRadio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="midRadio" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="metaRadio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="meta" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="url" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -80,19 +90,23 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="getButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="postButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="putButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="getRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="postRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="putRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="restButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="costcoButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pid" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="vid" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="mid" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="configure" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="meta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pidRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="vidRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="midRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="metaRadio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -107,18 +121,18 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JRadioButton" name="getButton">
+    <Component class="javax.swing.JRadioButton" name="getRadio">
       <Properties>
         <Property name="selected" type="boolean" value="true"/>
         <Property name="label" type="java.lang.String" value="Get"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="postButton">
+    <Component class="javax.swing.JRadioButton" name="postRadio">
       <Properties>
         <Property name="label" type="java.lang.String" value="Post"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="putButton">
+    <Component class="javax.swing.JRadioButton" name="putRadio">
       <Properties>
         <Property name="label" type="java.lang.String" value="Put"/>
       </Properties>
@@ -229,7 +243,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="625" max="32767" attributes="0"/>
+                          <EmptySpace pref="1000" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -266,7 +280,7 @@
                               <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="147" max="32767" attributes="0"/>
+                          <EmptySpace pref="150" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -387,7 +401,7 @@
                               <Component id="jButton7" max="32767" attributes="0"/>
                               <Component id="jButton9" pref="172" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="784" max="32767" attributes="0"/>
+                          <EmptySpace pref="1110" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -460,20 +474,20 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="restButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Rest"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="restButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="costcoButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Costco"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="costcoButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -500,17 +514,38 @@
     </Component>
     <Component class="javax.swing.JTextField" name="mid">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="configure">
       <Properties>
         <Property name="text" type="java.lang.String" value="Configure"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="configureActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="meta">
       <Properties>
         <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="Meta"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="pidRadio">
+      <Properties>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="Pid"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="vidRadio">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vid"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="midRadio">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mid"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="metaRadio">
+      <Properties>
         <Property name="text" type="java.lang.String" value="Meta"/>
       </Properties>
     </Component>

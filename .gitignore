@@ -1,2 +1,8 @@
 /target/
 /ProductHunter/target/
+/TestPackageDist/nbproject/private/
+/TestPackageDist/build/
+/TestPackageDist/dist/
+/CheckHello/nbproject/private/
+/CheckHello/build/
+/CheckHello/dist/
