@@ -74,9 +74,7 @@
                               <Component id="midRadio" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="metaRadio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="meta" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <EmptySpace min="10" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -102,7 +100,6 @@
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="mid" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="configure" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="meta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pidRadio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="vidRadio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="midRadio" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -521,12 +518,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="configureActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="meta">
-      <Properties>
-        <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="Meta"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="pidRadio">
       <Properties>
