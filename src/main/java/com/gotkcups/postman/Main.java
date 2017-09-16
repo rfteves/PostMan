@@ -518,6 +518,7 @@ public class Main extends javax.swing.JFrame {
         Document meta = new Document();
         meta.put(Constants.Metafield, metafield);
         GateWay.createVariantMetaField("prod", vends.get(0).getLong(Constants.Product_Id), vends.get(0).getLong("variantid"), meta.toJson());
+        int y=0;
       }
     }//GEN-LAST:event_jButton4ActionPerformed
 
